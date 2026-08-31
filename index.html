@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sreya M | AI & Software Developer</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #e8e8e8;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(74, 158, 255, 0.08), transparent 30%),
+                radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.08), transparent 30%),
+                linear-gradient(135deg, #080812, #111122 50%, #0b1428);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 25px;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 8, 18, 0.85);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        nav {
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: #4a9eff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.2rem;
+        }
+
+        .nav-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4a9eff;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 75px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: rgba(74,158,255,0.08);
+            border-radius: 50%;
+            filter: blur(100px);
+            top: 15%;
+            left: 5%;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(139,92,246,0.08);
+            border-radius: 50%;
+            filter: blur(100px);
+            bottom: 5%;
+            right: 5%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeUp 1s ease;
+        }
+
+        .hero-small {
+            color: #4a9eff;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #4a9eff;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #aaa;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            color: white;
+            background: linear-gradient(135deg, #4a9eff, #0066cc);
+            box-shadow: 0 10px 35px rgba(74,158,255,0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(74,158,255,0.4);
+        }
+
+        .btn-outline {
+            color: #4a9eff;
+            border: 1px solid rgba(74,158,255,0.5);
+        }
+
+        .btn-outline:hover {
+            background: rgba(74,158,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        /* ================= SECTIONS ================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 4rem;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            margin: 15px auto;
+            background: linear-gradient(90deg, #4a9eff, #8b5cf6);
+            border-radius: 5px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 0.8fr 1.5fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 3px solid rgba(74,158,255,0.5);
+            background: linear-gradient(135deg, #17243d, #111122);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 20px 70px rgba(74,158,255,0.2);
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-placeholder {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: #4a9eff;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #4a9eff;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: #aaa;
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* ================= PROJECTS ================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            padding: 2.5rem;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.09);
+            backdrop-filter: blur(15px);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(74,158,255,0.4);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+
+        .project-number {
+            color: #4a9eff;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .tech {
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: #4a9eff;
+            background: rgba(74,158,255,0.1);
+            border: 1px solid rgba(74,158,255,0.2);
+        }
+
+        .project-link {
+            color: #4a9eff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            padding: 2rem;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(74,158,255,0.3);
+        }
+
+        .skill-card h3 {
+            color: #4a9eff;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill {
+            color: #bbb;
+            padding: 0.45rem 0.8rem;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            font-size: 0.85rem;
+        }
+
+        /* ================= LEARNING ================= */
+
+        .learning-box {
+            max-width: 900px;
+            margin: auto;
+            padding: 3rem;
+            border-radius: 18px;
+            text-align: center;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .learning-box h3 {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .learning-box p {
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #4a9eff;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-item strong {
+            color: white;
+        }
+
+        .contact-item a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #4a9eff;
+        }
+
+        .contact-form {
+            padding: 2rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 8px;
+            color: white;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4a9eff;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            background: linear-gradient(135deg, #4a9eff, #0066cc);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 2rem;
+            text-align: center;
+            color: #777;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 768px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile {
+                width: 220px;
+                height: 220px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<header>
+    <nav class="container">
+
+        <a href="#home" class="logo">
+            Sreya<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#learning">Learning</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            Welcome to my portfolio
+        </div>
+
+        <h1>
+            Hi, I'm <span>Sreya M</span>
+        </h1>
+
+        <p>
+            Aspiring AI & Software Developer
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn btn-primary">
+                Explore My Work
+            </a>
+
+            <a href="https://github.com/sreya-2007"
+               target="_blank"
+               class="btn btn-outline">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            About Me
+        </h2>
+
+        <div class="about-content">
+
+            <div class="profile-container">
+
+                <!-- Add your image here -->
+                <!-- Example:
+                <img src="profile.jpg" alt="Sreya M">
+                -->
+
+                <div class="profile">
+                    <div class="profile-placeholder">
+                        SM
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="about-text">
+
+                <h3>
+                    Building. Learning. Creating.
+                </h3>
+
+                <p>
+                    I'm <span class="highlight">Sreya M</span>, a Computer Science
+                    Engineering student passionate about technology, software
+                    development, and artificial intelligence.
+                </p>
+
+                <p>
+                    I enjoy turning ideas into practical solutions and exploring
+                    how AI can be used to solve real-world problems. My current
+                    interests include <span class="highlight">
+                    Artificial Intelligence, Machine Learning, Software Development,
+                    and intelligent systems.</span>
+                </p>
+
+                <p>
+                    I'm continuously strengthening my programming fundamentals,
+                    learning modern technologies, and building projects that
+                    challenge me to think beyond traditional solutions.
+                </p>
+
+                <p>
+                    My goal is to grow into a developer who can combine strong
+                    software engineering skills with AI to create useful,
+                    scalable, and innovative products.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Featured Projects
+        </h2>
+
+        <div class="projects-grid">
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 01
+                </div>
+
+                <h3>
+                    PROJECT SWARM
+                </h3>
+
+                <p>
+                    An AI-powered multi-agent software engineering platform
+                    designed to divide complex software development tasks among
+                    specialized AI agents. Different agents can collaborate on
+                    planning, coding, testing, debugging, and reviewing software.
+                </p>
+
+                <div class="tech-stack">
+                    <span class="tech">AI</span>
+                    <span class="tech">Multi-Agent Systems</span>
+                    <span class="tech">Python</span>
+                    <span class="tech">LLMs</span>
+                    <span class="tech">Software Engineering</span>
+                </div>
+
+                <a href="https://github.com/sreya-2007"
+                   target="_blank"
+                   class="project-link">
+                    View on GitHub →
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 02
+                </div>
+
+                <h3>
+                    SELF-HEAL
+                </h3>
+
+                <p>
+                    An intelligent application reliability and root-cause
+                    analysis platform designed to monitor application logs,
+                    detect abnormal behavior, identify possible causes, and
+                    assist developers in resolving application issues faster.
+                </p>
+
+                <div class="tech-stack">
+                    <span class="tech">AI</span>
+                    <span class="tech">Python</span>
+                    <span class="tech">Log Analysis</span>
+                    <span class="tech">Machine Learning</span>
+                    <span class="tech">Automation</span>
+                </div>
+
+                <a href="https://github.com/sreya-2007"
+                   target="_blank"
+                   class="project-link">
+                    View on GitHub →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Skills & Technologies
+        </h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <h3>
+                    Programming
+                </h3>
+
+                <div class="skill-list">
+                    <span class="skill">Python</span>
+                    <span class="skill">C</span>
+                    <span class="skill">C++</span>
+                    <span class="skill">JavaScript</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <div class="skill-list">
+                    <span class="skill">HTML</span>
+                    <span class="skill">CSS</span>
+                    <span class="skill">JavaScript</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    AI & Machine Learning
+                </h3>
+
+                <div class="skill-list">
+                    <span class="skill">Machine Learning</span>
+                    <span class="skill">AI</span>
+                    <span class="skill">Scikit-learn</span>
+                    <span class="skill">TensorFlow</span>
+                    <span class="skill">PyTorch</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Databases
+                </h3>
+
+                <div class="skill-list">
+                    <span class="skill">SQL</span>
+                    <span class="skill">MySQL</span>
+                    <span class="skill">MongoDB</span>
+                    <span class="skill">NoSQL</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Tools & Platforms
+                </h3>
+
+                <div class="skill-list">
+                    <span class="skill">Git</span>
+                    <span class="skill">GitHub</span>
+                    <span class="skill">VS Code</span>
+                    <span class="skill">Proteus</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Core Concepts
+                </h3>
+
+                <div class="skill-list">
+                    <span class="skill">Data Structures</span>
+                    <span class="skill">Algorithms</span>
+                    <span class="skill">OOP</span>
+                    <span class="skill">DBMS</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CURRENTLY LEARNING ================= -->
+
+<section id="learning">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Currently Learning
+        </h2>
+
+        <div class="learning-box">
+
+            <h3>
+                Exploring What's Next
+            </h3>
+
+            <p>
+                I'm currently focused on improving my programming and
+                problem-solving skills while exploring Artificial Intelligence,
+                Machine Learning, multi-agent systems, and modern software
+                engineering practices.
+            </p>
+
+            <p style="margin-top: 1rem;">
+                I'm especially interested in understanding how intelligent
+                systems can work together with traditional software to build
+                applications that are more adaptive, reliable, and useful.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Get In Touch
+        </h2>
+
+        <div class="contact-content">
+
+            <div class="contact-info">
+
+                <h3>
+                    Let's Connect
+                </h3>
+
+                <p>
+                    I'm open to learning, collaborating on interesting projects,
+                    and connecting with people interested in technology,
+                    software development, and AI.
+                </p>
+
+                <div class="contact-item">
+                    <strong>Email:</strong><br>
+                    <a href="mailto:msreyamavila@gmail.com">
+                        msreyamavila@gmail.com
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>GitHub:</strong><br>
+                    <a href="https://github.com/sreya-2007"
+                       target="_blank">
+                        github.com/sreya-2007
+                    </a>
+                </div>
+
+            </div>
+
+
+            <form class="contact-form"
+                  onsubmit="handleSubmit(event)">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your Name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="your@email.com"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        rows="5"
+                        placeholder="Write your message..."
+                        required></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 Sreya M. Built with curiosity, code & creativity.
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    /* Contact Form */
+
+    function handleSubmit(event) {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("name").value;
+
+        alert(
+            "Thank you, " +
+            name +
+            "! Your message has been received."
+        );
+
+        event.target.reset();
+    }
+
+
+    /* Header effect */
+
+    window.addEventListener("scroll", function () {
+
+        const header =
+            document.querySelector("header");
+
+        if (window.scrollY > 50) {
+
+            header.style.background =
+                "rgba(5,5,15,0.97)";
+
+        } else {
+
+            header.style.background =
+                "rgba(8,8,18,0.85)";
+        }
+
+    });
+
+
+    /* Typing effect */
+
+    const subtitle =
+        document.querySelector(".hero p");
+
+    const text =
+        "Aspiring AI & Software Developer";
+
+    let index = 0;
+
+    subtitle.textContent = "";
+
+    function typeEffect() {
+
+        if (index < text.length) {
+
+            subtitle.textContent +=
+                text.charAt(index);
+
+            index++;
+
+            setTimeout(typeEffect, 60);
+        }
+    }
+
+    setTimeout(typeEffect, 800);
+
+</script>
+
+</body>
+</html>
