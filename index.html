@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sreya M | AI & Software Developer</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -21,13 +30,14 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #e8e8e8;
             background:
                 radial-gradient(circle at 10% 20%, rgba(74, 158, 255, 0.08), transparent 30%),
                 radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.08), transparent 30%),
-                linear-gradient(135deg, #080812, #111122 50%, #0b1428);
-            min-height: 100vh;
+                linear-gradient(135deg, #070710, #10101f 50%, #0a1225);
+
+            color: #e8e8e8;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
@@ -36,20 +46,28 @@
             padding: 0 25px;
         }
 
-        /* ================= HEADER ================= */
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(8, 8, 18, 0.85);
-            backdrop-filter: blur(18px);
+
+            background: rgba(7, 7, 16, 0.75);
+            backdrop-filter: blur(20px);
+
             border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            transition: 0.3s;
         }
 
         nav {
             height: 75px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,10 +75,11 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
+            font-weight: 600;
+
             color: white;
             text-decoration: none;
-            font-weight: 600;
         }
 
         .logo span {
@@ -76,7 +95,9 @@
         .nav-links a {
             color: #aaa;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
+            font-weight: 500;
+
             transition: 0.3s;
         }
 
@@ -84,62 +105,127 @@
             color: #4a9eff;
         }
 
-        /* ================= HERO ================= */
+        /* MOBILE MENU */
+
+        .menu-btn {
+            display: none;
+
+            font-size: 1.7rem;
+            color: white;
+
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             min-height: 100vh;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
+
             position: relative;
             overflow: hidden;
+
             padding-top: 75px;
         }
 
-        .hero::before {
-            content: "";
+        /* glowing circles */
+
+        .glow-one,
+        .glow-two,
+        .glow-three {
             position: absolute;
-            width: 450px;
-            height: 450px;
-            background: rgba(74,158,255,0.08);
+
             border-radius: 50%;
-            filter: blur(100px);
-            top: 15%;
+
+            filter: blur(90px);
+
+            opacity: 0.35;
+
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .glow-one {
+            width: 350px;
+            height: 350px;
+
+            background: #1769aa;
+
+            top: 10%;
             left: 5%;
         }
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: rgba(139,92,246,0.08);
-            border-radius: 50%;
-            filter: blur(100px);
+        .glow-two {
+            width: 300px;
+            height: 300px;
+
+            background: #5426a6;
+
             bottom: 5%;
-            right: 5%;
+            right: 10%;
+
+            animation-delay: 2s;
+        }
+
+        .glow-three {
+            width: 180px;
+            height: 180px;
+
+            background: #146c94;
+
+            top: 40%;
+            right: 25%;
+
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+
             animation: fadeUp 1s ease;
         }
 
         .hero-small {
             color: #4a9eff;
-            font-size: 0.95rem;
-            letter-spacing: 3px;
+
+            font-size: 0.85rem;
+
+            letter-spacing: 4px;
+
             text-transform: uppercase;
-            margin-bottom: 1.2rem;
+
+            margin-bottom: 1.5rem;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 5.5rem);
+
+            font-size: clamp(3.5rem, 8vw, 6rem);
+
+            line-height: 1.1;
+
             color: white;
-            margin-bottom: 1rem;
+
+            margin-bottom: 1.2rem;
+
             letter-spacing: -2px;
         }
 
@@ -147,297 +233,491 @@
             color: #4a9eff;
         }
 
-        .hero p {
-            font-size: 1.25rem;
+        .hero-subtitle {
+            font-size: 1.3rem;
+
             color: #aaa;
+
+            min-height: 35px;
+
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #888;
+
+            font-size: 1rem;
+
             margin-bottom: 2.5rem;
         }
 
         .hero-buttons {
             display: flex;
+
             justify-content: center;
+
             gap: 1rem;
+
             flex-wrap: wrap;
         }
 
         .btn {
             padding: 1rem 2rem;
+
             border-radius: 8px;
+
             text-decoration: none;
+
             font-weight: 600;
+
             transition: 0.3s;
         }
 
         .btn-primary {
             color: white;
-            background: linear-gradient(135deg, #4a9eff, #0066cc);
-            box-shadow: 0 10px 35px rgba(74,158,255,0.25);
+
+            background:
+                linear-gradient(135deg, #4a9eff, #0066cc);
+
+            box-shadow:
+                0 10px 35px rgba(74,158,255,0.25);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 45px rgba(74,158,255,0.4);
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 45px rgba(74,158,255,0.4);
         }
 
         .btn-outline {
             color: #4a9eff;
+
             border: 1px solid rgba(74,158,255,0.5);
         }
 
         .btn-outline:hover {
             background: rgba(74,158,255,0.1);
-            transform: translateY(-3px);
+
+            transform: translateY(-4px);
         }
 
-        /* ================= SECTIONS ================= */
+        /* =========================
+           SCROLL INDICATOR
+        ========================= */
+
+        .scroll-down {
+            position: absolute;
+
+            bottom: 30px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: #666;
+
+            font-size: 0.75rem;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .scroll-down::after {
+            content: "↓";
+
+            display: block;
+
+            text-align: center;
+
+            font-size: 1.3rem;
+
+            margin-top: 5px;
+
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(7px);
+            }
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
-            padding: 100px 0;
+            padding: 110px 0;
         }
 
         .section-title {
             text-align: center;
+
             font-family: 'Playfair Display', serif;
+
             font-size: 2.8rem;
+
             color: white;
+
             margin-bottom: 4rem;
         }
 
         .section-title::after {
             content: "";
+
             display: block;
+
             width: 60px;
             height: 3px;
+
             margin: 15px auto;
-            background: linear-gradient(90deg, #4a9eff, #8b5cf6);
+
+            background:
+                linear-gradient(90deg, #4a9eff, #8b5cf6);
+
             border-radius: 5px;
         }
 
-        /* ================= ABOUT ================= */
+        /* =========================
+           ABOUT
+        ========================= */
 
         .about-content {
             display: grid;
+
             grid-template-columns: 0.8fr 1.5fr;
+
             gap: 5rem;
+
             align-items: center;
         }
 
         .profile-container {
             display: flex;
+
             justify-content: center;
         }
 
         .profile {
             width: 280px;
             height: 280px;
+
             border-radius: 50%;
-            border: 3px solid rgba(74,158,255,0.5);
-            background: linear-gradient(135deg, #17243d, #111122);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            box-shadow: 0 20px 70px rgba(74,158,255,0.2);
+
+            padding: 5px;
+
+            background:
+                linear-gradient(135deg, #4a9eff, #8b5cf6);
+
+            box-shadow:
+                0 20px 70px rgba(74,158,255,0.25);
+
+            animation: profileFloat 5s ease-in-out infinite;
         }
 
         .profile img {
             width: 100%;
             height: 100%;
+
             object-fit: cover;
+
+            border-radius: 50%;
+
+            display: block;
+
+            border: 5px solid #10101f;
         }
 
-        .profile-placeholder {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            color: #4a9eff;
+        @keyframes profileFloat {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .about-text h3 {
             font-family: 'Playfair Display', serif;
+
             font-size: 2.2rem;
+
             color: #4a9eff;
+
             margin-bottom: 1.5rem;
         }
 
         .about-text p {
             color: #aaa;
-            margin-bottom: 1.2rem;
+
             line-height: 1.8;
+
+            margin-bottom: 1.2rem;
         }
 
         .highlight {
             color: white;
+
             font-weight: 600;
         }
 
-        /* ================= PROJECTS ================= */
+        /* =========================
+           EDUCATION
+        ========================= */
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
+        .education-card {
+            max-width: 850px;
 
-        .project-card {
+            margin: auto;
+
             padding: 2.5rem;
-            border-radius: 18px;
+
             background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.09);
-            backdrop-filter: blur(15px);
-            transition: 0.4s;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 18px;
+
             position: relative;
-            overflow: hidden;
+
+            transition: 0.3s;
         }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(74,158,255,0.4);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        .education-card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(74,158,255,0.35);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.25);
         }
 
-        .project-number {
+        .education-year {
             color: #4a9eff;
+
             font-size: 0.85rem;
+
             letter-spacing: 2px;
-            margin-bottom: 1rem;
+
+            margin-bottom: 0.7rem;
         }
 
-        .project-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+        .education-card h3 {
             color: white;
+
+            font-size: 1.5rem;
+
+            margin-bottom: 0.4rem;
+        }
+
+        .education-card h4 {
+            color: #aaa;
+
+            font-weight: 400;
+
             margin-bottom: 1rem;
         }
 
-        .project-card p {
-            color: #aaa;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
+        .education-card p {
+            color: #888;
         }
 
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.8rem;
-        }
-
-        .tech {
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            color: #4a9eff;
-            background: rgba(74,158,255,0.1);
-            border: 1px solid rgba(74,158,255,0.2);
-        }
-
-        .project-link {
-            color: #4a9eff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* ================= SKILLS ================= */
+        /* =========================
+           SKILLS
+        ========================= */
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
             gap: 1.5rem;
         }
 
         .skill-card {
             padding: 2rem;
+
             border-radius: 15px;
+
             background: rgba(255,255,255,0.04);
+
             border: 1px solid rgba(255,255,255,0.08);
+
             transition: 0.3s;
         }
 
         .skill-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(74,158,255,0.3);
+            transform: translateY(-7px);
+
+            border-color: rgba(74,158,255,0.35);
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .skill-icon {
+            font-size: 1.8rem;
+
+            margin-bottom: 1rem;
         }
 
         .skill-card h3 {
             color: #4a9eff;
+
             margin-bottom: 1.2rem;
-            font-size: 1.2rem;
+
+            font-size: 1.15rem;
         }
 
         .skill-list {
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 0.6rem;
         }
 
         .skill {
             color: #bbb;
+
             padding: 0.45rem 0.8rem;
+
             border-radius: 6px;
+
             background: rgba(255,255,255,0.05);
-            font-size: 0.85rem;
+
+            border: 1px solid rgba(255,255,255,0.05);
+
+            font-size: 0.82rem;
         }
 
-        /* ================= LEARNING ================= */
+        /* =========================
+           LEARNING
+        ========================= */
 
         .learning-box {
             max-width: 900px;
+
             margin: auto;
+
             padding: 3rem;
-            border-radius: 18px;
+
+            border-radius: 20px;
+
             text-align: center;
-            background: rgba(255,255,255,0.04);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(74,158,255,0.08),
+                    rgba(139,92,246,0.06)
+                );
+
             border: 1px solid rgba(255,255,255,0.08);
         }
 
         .learning-box h3 {
             font-family: 'Playfair Display', serif;
+
             color: white;
+
             font-size: 2rem;
+
             margin-bottom: 1rem;
         }
 
         .learning-box p {
-            color: #aaa;
+            color: #999;
+
             line-height: 1.8;
+
+            margin-bottom: 1.5rem;
         }
 
-        /* ================= CONTACT ================= */
+        .learning-tags {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 0.7rem;
+        }
+
+        .learning-tag {
+            padding: 0.6rem 1rem;
+
+            border-radius: 20px;
+
+            background: rgba(74,158,255,0.1);
+
+            border: 1px solid rgba(74,158,255,0.25);
+
+            color: #4a9eff;
+
+            font-size: 0.85rem;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
 
         .contact-content {
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 4rem;
         }
 
         .contact-info h3 {
             font-family: 'Playfair Display', serif;
+
             font-size: 2rem;
+
             color: #4a9eff;
+
             margin-bottom: 1rem;
         }
 
         .contact-info p {
             color: #aaa;
+
             margin-bottom: 2rem;
         }
 
         .contact-item {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .contact-item strong {
+        .contact-label {
             color: white;
+
+            font-weight: 600;
+
+            margin-bottom: 3px;
         }
 
         .contact-item a {
-            color: #aaa;
+            color: #999;
+
             text-decoration: none;
+
+            transition: 0.3s;
         }
 
         .contact-item a:hover {
@@ -445,68 +725,112 @@
         }
 
         .contact-form {
-            padding: 2rem;
+            padding: 2.5rem;
+
             background: rgba(255,255,255,0.04);
+
             border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
+
+            border-radius: 18px;
         }
 
         .form-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.3rem;
         }
 
         .form-group label {
             display: block;
+
             margin-bottom: 0.5rem;
+
             color: #ddd;
+
             font-size: 0.9rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
+
             padding: 1rem;
+
             background: rgba(255,255,255,0.04);
+
             border: 1px solid rgba(255,255,255,0.12);
+
             border-radius: 8px;
+
             color: white;
+
             font-family: inherit;
+
+            resize: vertical;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
+
             border-color: #4a9eff;
+
+            box-shadow:
+                0 0 0 3px rgba(74,158,255,0.08);
         }
 
         .submit-btn {
             width: 100%;
+
             padding: 1rem;
+
             border: none;
+
             border-radius: 8px;
+
             color: white;
-            background: linear-gradient(135deg, #4a9eff, #0066cc);
+
+            background:
+                linear-gradient(135deg, #4a9eff, #0066cc);
+
             cursor: pointer;
+
             font-weight: 600;
+
             font-size: 1rem;
+
+            transition: 0.3s;
         }
 
         .submit-btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 30px rgba(74,158,255,0.3);
         }
 
-        /* ================= FOOTER ================= */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            padding: 2rem;
+            padding: 2.5rem;
+
             text-align: center;
-            color: #777;
+
+            color: #666;
+
             border-top: 1px solid rgba(255,255,255,0.08);
         }
 
-        /* ================= ANIMATION ================= */
+        footer span {
+            color: #4a9eff;
+        }
+
+        /* =========================
+           ANIMATION
+        ========================= */
 
         @keyframes fadeUp {
+
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -518,30 +842,57 @@
             }
         }
 
-        /* ================= RESPONSIVE ================= */
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media(max-width: 768px) {
 
             .nav-links {
+                position: absolute;
+
+                top: 75px;
+                left: 0;
+
+                width: 100%;
+
                 display: none;
+
+                flex-direction: column;
+
+                gap: 0;
+
+                background: rgba(7,7,16,0.97);
+
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+
+                padding: 1rem;
+            }
+
+            .menu-btn {
+                display: block;
             }
 
             .hero h1 {
-                font-size: 3rem;
+                font-size: 3.2rem;
             }
 
-            .hero p {
-                font-size: 1rem;
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
 
-            .about-content,
-            .contact-content {
+            .about-content {
                 grid-template-columns: 1fr;
+
                 text-align: center;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
             }
 
             .profile {
@@ -549,40 +900,92 @@
                 height: 220px;
             }
 
+            .contact-content {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
             section {
-                padding: 70px 0;
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-size: 2.4rem;
+            }
+
+            .learning-box {
+                padding: 2rem 1.5rem;
             }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
+
     <nav class="container">
 
         <a href="#home" class="logo">
             Sreya<span>.</span>
         </a>
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#learning">Learning</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#learning">Learning</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
         </ul>
 
+        <div class="menu-btn" id="menuBtn">
+            ☰
+        </div>
+
     </nav>
+
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section id="home" class="hero">
+
+    <div class="glow-one"></div>
+    <div class="glow-two"></div>
+    <div class="glow-three"></div>
+
 
     <div class="hero-content">
 
@@ -594,30 +997,44 @@
             Hi, I'm <span>Sreya M</span>
         </h1>
 
-        <p>
+        <p class="hero-subtitle">
             Aspiring AI & Software Developer
+        </p>
+
+        <p class="hero-description">
+            Exploring the intersection of artificial intelligence,
+            software development, and problem solving to build
+            meaningful technology.
         </p>
 
         <div class="hero-buttons">
 
-            <a href="#projects" class="btn btn-primary">
-                Explore My Work
+            <a href="#about"
+               class="btn btn-primary">
+                Explore My Journey
             </a>
 
             <a href="https://github.com/sreya-2007"
                target="_blank"
                class="btn btn-outline">
-                GitHub
+                GitHub ↗
             </a>
 
         </div>
 
     </div>
 
+
+    <div class="scroll-down">
+        Scroll to explore
+    </div>
+
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about">
 
@@ -627,15 +1044,22 @@
             About Me
         </h2>
 
-            <div class="about-content">
 
-                <div class="profile-container">
-            
-                    <div class="profile">
-                        <img src="profile.jpeg" alt="Sreya M">
-                    </div>
-            
+        <div class="about-content">
+
+
+            <div class="profile-container">
+
+                <div class="profile">
+
+                    <img
+                        src="profile.jpeg"
+                        alt="Sreya M">
+
+                </div>
+
             </div>
+
 
             <div class="about-text">
 
@@ -643,30 +1067,43 @@
                     Building. Learning. Creating.
                 </h3>
 
-                <p>
-                    I'm <span class="highlight">Sreya M</span>, a Computer Science
-                    Engineering student passionate about technology, software
-                    development, and artificial intelligence.
-                </p>
 
                 <p>
-                    I enjoy turning ideas into practical solutions and exploring
-                    how AI can be used to solve real-world problems. My current
-                    interests include <span class="highlight">
-                    Artificial Intelligence, Machine Learning, Software Development,
-                    and intelligent systems.</span>
+                    I'm <span class="highlight">Sreya M</span>,
+                    a Computer Science Engineering student with a
+                    growing passion for Artificial Intelligence and
+                    Software Development.
                 </p>
 
-                <p>
-                    I'm continuously strengthening my programming fundamentals,
-                    learning modern technologies, and building projects that
-                    challenge me to think beyond traditional solutions.
-                </p>
 
                 <p>
-                    My goal is to grow into a developer who can combine strong
-                    software engineering skills with AI to create useful,
-                    scalable, and innovative products.
+                    I enjoy understanding how technology works,
+                    solving programming problems, and turning ideas
+                    into practical applications.
+                </p>
+
+
+                <p>
+                    My current interests include
+                    <span class="highlight">
+                    Artificial Intelligence, Machine Learning,
+                    Software Engineering, and intelligent systems.
+                    </span>
+                </p>
+
+
+                <p>
+                    I believe that strong fundamentals are the
+                    foundation of great technology, so I'm continuously
+                    improving my programming, problem-solving, and
+                    development skills.
+                </p>
+
+
+                <p>
+                    My long-term goal is to become a developer who
+                    combines strong software engineering with AI to
+                    create useful and innovative solutions.
                 </p>
 
             </div>
@@ -678,88 +1115,39 @@
 </section>
 
 
-<!-- ================= PROJECTS ================= -->
+<!-- =========================
+     EDUCATION
+========================= -->
 
-<section id="projects">
+<section id="education">
 
     <div class="container">
 
         <h2 class="section-title">
-            Featured Projects
+            Education
         </h2>
 
-        <div class="projects-grid">
 
-            <!-- PROJECT 1 -->
+        <div class="education-card">
 
-            <div class="project-card">
-
-                <div class="project-number">
-                    PROJECT 01
-                </div>
-
-                <h3>
-                    PROJECT SWARM
-                </h3>
-
-                <p>
-                    An AI-powered multi-agent software engineering platform
-                    designed to divide complex software development tasks among
-                    specialized AI agents. Different agents can collaborate on
-                    planning, coding, testing, debugging, and reviewing software.
-                </p>
-
-                <div class="tech-stack">
-                    <span class="tech">AI</span>
-                    <span class="tech">Multi-Agent Systems</span>
-                    <span class="tech">Python</span>
-                    <span class="tech">LLMs</span>
-                    <span class="tech">Software Engineering</span>
-                </div>
-
-                <a href="https://github.com/sreya-2007"
-                   target="_blank"
-                   class="project-link">
-                    View on GitHub →
-                </a>
-
+            <div class="education-year">
+                CURRENT
             </div>
 
+            <h3>
+                Bachelor of Technology — Computer Science & Engineering
+            </h3>
 
-            <!-- PROJECT 2 -->
+            <h4>
+                Lovely Professional University
+            </h4>
 
-            <div class="project-card">
-
-                <div class="project-number">
-                    PROJECT 02
-                </div>
-
-                <h3>
-                    SELF-HEAL
-                </h3>
-
-                <p>
-                    An intelligent application reliability and root-cause
-                    analysis platform designed to monitor application logs,
-                    detect abnormal behavior, identify possible causes, and
-                    assist developers in resolving application issues faster.
-                </p>
-
-                <div class="tech-stack">
-                    <span class="tech">AI</span>
-                    <span class="tech">Python</span>
-                    <span class="tech">Log Analysis</span>
-                    <span class="tech">Machine Learning</span>
-                    <span class="tech">Automation</span>
-                </div>
-
-                <a href="https://github.com/sreya-2007"
-                   target="_blank"
-                   class="project-link">
-                    View on GitHub →
-                </a>
-
-            </div>
+            <p>
+                Currently pursuing B.Tech in Computer Science &
+                Engineering, developing a strong foundation in
+                programming, data structures, databases, mathematics,
+                web development, and emerging technologies.
+            </p>
 
         </div>
 
@@ -768,7 +1156,9 @@
 </section>
 
 
-<!-- ================= SKILLS ================= -->
+<!-- =========================
+     SKILLS
+========================= -->
 
 <section id="skills">
 
@@ -778,99 +1168,215 @@
             Skills & Technologies
         </h2>
 
+
         <div class="skills-grid">
 
+
+            <!-- Programming -->
+
             <div class="skill-card">
+
+                <div class="skill-icon">
+                    💻
+                </div>
 
                 <h3>
                     Programming
                 </h3>
 
                 <div class="skill-list">
-                    <span class="skill">Python</span>
-                    <span class="skill">C</span>
-                    <span class="skill">C++</span>
-                    <span class="skill">JavaScript</span>
+
+                    <span class="skill">
+                        Python
+                    </span>
+
+                    <span class="skill">
+                        C
+                    </span>
+
+                    <span class="skill">
+                        C++
+                    </span>
+
+                    <span class="skill">
+                        JavaScript
+                    </span>
+
                 </div>
 
             </div>
 
 
+            <!-- Web -->
+
             <div class="skill-card">
+
+                <div class="skill-icon">
+                    🌐
+                </div>
 
                 <h3>
                     Web Development
                 </h3>
 
                 <div class="skill-list">
-                    <span class="skill">HTML</span>
-                    <span class="skill">CSS</span>
-                    <span class="skill">JavaScript</span>
+
+                    <span class="skill">
+                        HTML
+                    </span>
+
+                    <span class="skill">
+                        CSS
+                    </span>
+
+                    <span class="skill">
+                        JavaScript
+                    </span>
+
                 </div>
 
             </div>
 
 
+            <!-- AI -->
+
             <div class="skill-card">
+
+                <div class="skill-icon">
+                    🤖
+                </div>
 
                 <h3>
                     AI & Machine Learning
                 </h3>
 
                 <div class="skill-list">
-                    <span class="skill">Machine Learning</span>
-                    <span class="skill">AI</span>
-                    <span class="skill">Scikit-learn</span>
-                    <span class="skill">TensorFlow</span>
-                    <span class="skill">PyTorch</span>
+
+                    <span class="skill">
+                        Artificial Intelligence
+                    </span>
+
+                    <span class="skill">
+                        Machine Learning
+                    </span>
+
+                    <span class="skill">
+                        Scikit-learn
+                    </span>
+
+                    <span class="skill">
+                        TensorFlow
+                    </span>
+
+                    <span class="skill">
+                        PyTorch
+                    </span>
+
                 </div>
 
             </div>
 
 
+            <!-- Database -->
+
             <div class="skill-card">
+
+                <div class="skill-icon">
+                    🗄️
+                </div>
 
                 <h3>
                     Databases
                 </h3>
 
                 <div class="skill-list">
-                    <span class="skill">SQL</span>
-                    <span class="skill">MySQL</span>
-                    <span class="skill">MongoDB</span>
-                    <span class="skill">NoSQL</span>
+
+                    <span class="skill">
+                        SQL
+                    </span>
+
+                    <span class="skill">
+                        MySQL
+                    </span>
+
+                    <span class="skill">
+                        MongoDB
+                    </span>
+
+                    <span class="skill">
+                        NoSQL
+                    </span>
+
                 </div>
 
             </div>
 
 
+            <!-- Tools -->
+
             <div class="skill-card">
 
+                <div class="skill-icon">
+                    🛠️
+                </div>
+
                 <h3>
-                    Tools & Platforms
+                    Tools
                 </h3>
 
                 <div class="skill-list">
-                    <span class="skill">Git</span>
-                    <span class="skill">GitHub</span>
-                    <span class="skill">VS Code</span>
-                    <span class="skill">Proteus</span>
+
+                    <span class="skill">
+                        Git
+                    </span>
+
+                    <span class="skill">
+                        GitHub
+                    </span>
+
+                    <span class="skill">
+                        VS Code
+                    </span>
+
+                    <span class="skill">
+                        Proteus
+                    </span>
+
                 </div>
 
             </div>
 
 
+            <!-- Fundamentals -->
+
             <div class="skill-card">
 
+                <div class="skill-icon">
+                    🧠
+                </div>
+
                 <h3>
-                    Core Concepts
+                    Computer Science
                 </h3>
 
                 <div class="skill-list">
-                    <span class="skill">Data Structures</span>
-                    <span class="skill">Algorithms</span>
-                    <span class="skill">OOP</span>
-                    <span class="skill">DBMS</span>
+
+                    <span class="skill">
+                        Data Structures
+                    </span>
+
+                    <span class="skill">
+                        Algorithms
+                    </span>
+
+                    <span class="skill">
+                        OOP
+                    </span>
+
+                    <span class="skill">
+                        DBMS
+                    </span>
+
                 </div>
 
             </div>
@@ -882,7 +1388,9 @@
 </section>
 
 
-<!-- ================= CURRENTLY LEARNING ================= -->
+<!-- =========================
+     CURRENTLY LEARNING
+========================= -->
 
 <section id="learning">
 
@@ -892,24 +1400,59 @@
             Currently Learning
         </h2>
 
+
         <div class="learning-box">
 
             <h3>
                 Exploring What's Next
             </h3>
 
+
             <p>
-                I'm currently focused on improving my programming and
-                problem-solving skills while exploring Artificial Intelligence,
-                Machine Learning, multi-agent systems, and modern software
-                engineering practices.
+                I'm currently focused on strengthening my programming
+                fundamentals while exploring modern technologies in
+                Artificial Intelligence and Software Development.
             </p>
 
-            <p style="margin-top: 1rem;">
-                I'm especially interested in understanding how intelligent
-                systems can work together with traditional software to build
-                applications that are more adaptive, reliable, and useful.
+
+            <p>
+                My focus is on learning by building, experimenting,
+                solving problems, and gradually turning ideas into
+                real-world applications.
             </p>
+
+
+            <div class="learning-tags">
+
+                <span class="learning-tag">
+                    Data Structures & Algorithms
+                </span>
+
+                <span class="learning-tag">
+                    Artificial Intelligence
+                </span>
+
+                <span class="learning-tag">
+                    Machine Learning
+                </span>
+
+                <span class="learning-tag">
+                    Python
+                </span>
+
+                <span class="learning-tag">
+                    Web Development
+                </span>
+
+                <span class="learning-tag">
+                    Software Engineering
+                </span>
+
+                <span class="learning-tag">
+                    Multi-Agent AI
+                </span>
+
+            </div>
 
         </div>
 
@@ -918,7 +1461,9 @@
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- =========================
+     CONTACT
+========================= -->
 
 <section id="contact">
 
@@ -928,7 +1473,9 @@
             Get In Touch
         </h2>
 
+
         <div class="contact-content">
+
 
             <div class="contact-info">
 
@@ -936,32 +1483,63 @@
                     Let's Connect
                 </h3>
 
+
                 <p>
-                    I'm open to learning, collaborating on interesting projects,
-                    and connecting with people interested in technology,
-                    software development, and AI.
+                    I'm always interested in learning, collaborating,
+                    discussing technology, and connecting with people
+                    who share an interest in software and AI.
                 </p>
 
+
                 <div class="contact-item">
-                    <strong>Email:</strong><br>
+
+                    <div class="contact-label">
+                        📧 Email
+                    </div>
+
                     <a href="mailto:msreyamavila@gmail.com">
                         msreyamavila@gmail.com
                     </a>
+
                 </div>
 
+
                 <div class="contact-item">
-                    <strong>GitHub:</strong><br>
-                    <a href="https://github.com/sreya-2007"
-                       target="_blank">
+
+                    <div class="contact-label">
+                        💻 GitHub
+                    </div>
+
+                    <a
+                        href="https://github.com/sreya-2007"
+                        target="_blank">
+
                         github.com/sreya-2007
+
                     </a>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-label">
+                        📍 Location
+                    </div>
+
+                    <span style="color:#999;">
+                        India
+                    </span>
+
                 </div>
 
             </div>
 
 
-            <form class="contact-form"
-                  onsubmit="handleSubmit(event)">
+            <form
+                class="contact-form"
+                onsubmit="handleSubmit(event)">
+
 
                 <div class="form-group">
 
@@ -1011,7 +1589,9 @@
                 <button
                     type="submit"
                     class="submit-btn">
+
                     Send Message
+
                 </button>
 
             </form>
@@ -1023,22 +1603,87 @@
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
     <p>
-        © 2026 Sreya M. Built with curiosity, code & creativity.
+        © 2026 <span>Sreya M</span>.
+        Built with curiosity, code & creativity.
     </p>
 
 </footer>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
-    /* Contact Form */
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", function () {
+
+        navLinks.classList.toggle("active");
+
+    });
+
+
+    /* Close menu after clicking */
+
+    document
+        .querySelectorAll(".nav-links a")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+
+    /* =========================
+       HEADER SCROLL
+    ========================= */
+
+    window.addEventListener("scroll", function () {
+
+        const header =
+            document.querySelector("header");
+
+        if (window.scrollY > 50) {
+
+            header.style.background =
+                "rgba(5,5,15,0.97)";
+
+        } else {
+
+            header.style.background =
+                "rgba(7,7,16,0.75)";
+
+        }
+
+    });
+
+
+    /* =========================
+       CONTACT FORM
+    ========================= */
 
     function handleSubmit(event) {
 
@@ -1054,41 +1699,24 @@
         );
 
         event.target.reset();
+
     }
 
 
-    /* Header effect */
-
-    window.addEventListener("scroll", function () {
-
-        const header =
-            document.querySelector("header");
-
-        if (window.scrollY > 50) {
-
-            header.style.background =
-                "rgba(5,5,15,0.97)";
-
-        } else {
-
-            header.style.background =
-                "rgba(8,8,18,0.85)";
-        }
-
-    });
-
-
-    /* Typing effect */
+    /* =========================
+       TYPING EFFECT
+    ========================= */
 
     const subtitle =
-        document.querySelector(".hero p");
+        document.querySelector(".hero-subtitle");
 
     const text =
         "Aspiring AI & Software Developer";
 
+    subtitle.textContent = "";
+
     let index = 0;
 
-    subtitle.textContent = "";
 
     function typeEffect() {
 
@@ -1099,13 +1727,18 @@
 
             index++;
 
-            setTimeout(typeEffect, 60);
+            setTimeout(typeEffect, 65);
+
         }
+
     }
 
-    setTimeout(typeEffect, 800);
+
+    setTimeout(typeEffect, 700);
+
 
 </script>
+
 
 </body>
 </html>
